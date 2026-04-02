@@ -13,3 +13,7 @@ At this moment I fully switched to Fedora from Ubuntu so only Fedora related scr
 
 - [Install **VSCode** and add its repo into DNF repositories list](scripts/addvscode.md)
 
+- [Install Far Manager](scripts/farmanager.md)
+
+- [Configure Git to use `libsecreat` for credentials](scripts/git-credetials.md)
+
