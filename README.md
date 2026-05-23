@@ -17,3 +17,4 @@ At this moment I fully switched to Fedora from Ubuntu so only Fedora related scr
 
 - [Configure Git to use `libsecreat` for credentials](scripts/git-credetials.md)
 
+- [Configure Fedora to not ask for password in RDP session to update metadata](scripts/polkit-rdp-fix.md)
