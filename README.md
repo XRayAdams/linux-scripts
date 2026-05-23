@@ -6,7 +6,7 @@ This is a collection of scripts and commands I use to install various apps, driv
 
 > _Yes, you can ask ChatGPT or Gemini, but result is not guaranteed from the beginning._
 
-At this moment I fully switched to Fedora from Ubuntu so only Fedora related scripts are available. But most of the command can be used on Ubuntu same way. Except for DNF.
+At this moment I fully switched to Fedora from Ubuntu, so only Fedora related scripts are available. But most of the command can be used on Ubuntu same way. Except for DNF.
 
 ## Fedora
 - [Rocm installation. **GTT** memory and PyTorch with Ryzen AI Max+ support](scripts/rocm.md)

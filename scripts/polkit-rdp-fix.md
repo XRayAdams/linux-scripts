@@ -2,7 +2,7 @@
 
 If you use RDP to connect to Fedora, you might see too many, and I mean it, a way too many, popups asking for a password to update metadata. Ubuntu does not do that, but Fedora do. 
 
-To fix it, create a file named ```00-local.rules``` in ```/etc/polkit-1/rules.d``` folder and paste this content. Remember, this folder required to use sudo top create a file:
+To fix it, create a file named `00-local.rules` in `/etc/polkit-1/rules.d` folder and paste this content. Remember, this folder required to use sudo top create a file:
 
 ```
 polkit.addRule(function(action, subject) {
@@ -34,3 +34,5 @@ After that restart polkit or reboot your system
 ```bash
 sudo systemctl restart polkit.service
 ```
+
+Why RDP sessions is askind for a password in a first place? RDP sessions considered remote session and by default Polkit forces authentication. By applying those rules you are overriding rules for the members of `wheel` (administrators) to bypass the prompts. 
