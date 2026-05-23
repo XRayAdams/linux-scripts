@@ -2,7 +2,7 @@
 
 If you use RDP to connect to Fedora, you might see too many, and I mean it, a way too many, popups asking for a password to update metadata. Ubuntu does not do that, but Fedora do. 
 
-To fix it, create a file named ```00-local.rules``` in ```/etc/polkit-1/rules.d``` folder and paste this content:
+To fix it, create a file named ```00-local.rules``` in ```/etc/polkit-1/rules.d``` folder and paste this content. Remember, this folder required to use sudo top create a file:
 
 ```
 polkit.addRule(function(action, subject) {
@@ -21,6 +21,12 @@ polkit.addRule(function(action, subject) {
 
     return polkit.Result.NOT_HANDLED;
 });
+```
+
+You can use this command to do it
+
+```bash
+sudo nano /etc/polkit-1/rules.d/00-local.rules
 ```
 
 After that restart polkit or reboot your system
