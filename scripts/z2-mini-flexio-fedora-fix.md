@@ -10,9 +10,8 @@ After checking my configuration I found that I have maxed out PSU for this unit!
 
 **Aggressive Power Management** of Fedora. This exerp is from internet:
 
-```
-"Linux (Fedora 44) uses aggressive power management (TLP, powertop, or kernel-level PCIe ASPM) to suspend unused PCIe devices. When the OS tries to wake up or suspend the FlexIO card's PCIe controller, it can cause a sudden transient current spike that triggers the motherboard's over-current protection (OCP)."
-```
+
+> "Linux (Fedora 44) uses aggressive power management (TLP, powertop, or kernel-level PCIe ASPM) to suspend unused PCIe devices. When the OS tries to wake up or suspend the FlexIO card's PCIe controller, it can cause a sudden transient current spike that triggers the motherboard's over-current protection (OCP)."
 
 Solution to fix this was to disable PCIe ASPM (a.k.a. Active State Power Management) by GRUB configuration. To do so, edit GRUB config
 
