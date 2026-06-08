@@ -18,3 +18,5 @@ At this moment I fully switched to Fedora from Ubuntu, so only Fedora related sc
 - [Configure Git to use `libsecreat` for credentials](scripts/git-credetials.md)
 
 - [Configure Fedora to not ask for password in RDP session to update metadata](scripts/polkit-rdp-fix.md)
+
+- [Configure Fedora to not crash on HP Z2 Mini Workstation with FlexIO board installed](scripts/z2-mini-flexio-fedora-fix.md)
