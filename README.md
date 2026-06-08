@@ -1,5 +1,5 @@
 
-# Useful collection of scripts
+# Useful collection of fixes and scripts
 
 This is a collection of scripts and commands I use to install various apps, drivers and change system settings. I have a few physical and more VM installations and from time to time I had to install everything from scratch. So, I decided to just keep these instructions here for myself and if it will be helpful for you, then even better!
 
