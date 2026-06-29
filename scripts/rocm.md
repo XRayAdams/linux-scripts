@@ -2,10 +2,41 @@
 
 ### To install Rocm from official repo of AMD. 
 
+Since release of Fedora 44 you can use built-in Rocm. It is older version, but it works. If you still want to use the newest version, you need to disable Rocm installation from main Fedora repos, otherwise Software app will complain that you have updates and try to install old Rocm from official repo and fail, following never ended reinstallation process
+
+To do so, follow these instructions:
+
+```bash
+sudo dnf remove rocm* hipcc rocminfo
+```
+
+Edit updates repo
+```bash
+sudo nano /etc/yum.repos.d/fedora-updates.repo
+```
+
+Add at the end of `[updates]` section
+```
+exclude=rocm* hip* rocminfo
+```
+
+Do the same for main Fedora repo
+
+```bash
+sudo nano /etc/yum.repos.d/fedora.repo
+```
+
+Add at the end of `[updates]` section
+```
+exclude=rocm* hip* rocminfo
+```
+
+
+
 Adding repo to `dnf`. Change version if new Rocm is available. Also, if new Red Hat Linux version is released.
 
 ```bash
-sudo dnf install https://repo.radeon.com/amdgpu-install/7.2.2/rhel/10.1/amdgpu-install-7.2.2.70202-1.el10.noarch.rpm
+sudo dnf install https://repo.radeon.com/amdgpu-install/7.2.4/rhel/10.1/amdgpu-install-7.2.4.70204-1.el10.noarch.rpm  
 ```
 
 Then add current user into two groups
@@ -32,7 +63,7 @@ amd-smi
 The latter will output something like this
 ```
 +------------------------------------------------------------------------------+
-| AMD-SMI 26.2.2+e1a6bc5663    amdgpu version: Linuxver ROCm version: 7.2.2    |
+| AMD-SMI 26.2.2+e1a6bc5663    amdgpu version: Linuxver ROCm version: 7.2.4    |
 | VBIOS version: 00107962                                                      |
 | Platform: Linux Baremetal                                                    |
 |-------------------------------------+----------------------------------------|
@@ -84,17 +115,17 @@ To check available GTT memory use `AMDGPU TOP`, or `Mission Center`
 
 While we are waiting for dull support of AMD Ryzen AI Max+ by PyTorch, you can use specially compiled wheels from AMD repos.
 
-Repository link to Rocm PyTorch compiled wheels. https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.2/
+Repository link to Rocm PyTorch compiled wheels. https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/
 
 If you use Python v3.13, then all what you need is to download these files (check hwat version of pytorch you need):
 
-https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.2/torch-2.9.1%2Brocm7.2.2.lw.git127a149a-cp313-cp313-linux_x86_64.whl
+https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torch-2.9.1%2Brocm7.2.4.lw.git39497456-cp313-cp313-linux_x86_64.whl
 
-https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.2/torchvision-0.26.0%2Brocm7.2.2.git336d36e8-cp313-cp313-linux_x86_64.whl
+https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torchvision-0.25.0%2Brocm7.2.4.git82df5f59-cp313-cp313-linux_x86_64.whl
 
-https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.2/torchaudio-2.9.0%2Brocm7.2.2.gite3c6ee2b-cp313-cp313-linux_x86_64.whl
+https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torchaudio-2.10.0%2Brocm7.2.4.git5047768f-cp313-cp313-linux_x86_64.whl
 
-https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.2/triton-3.5.1%2Brocm7.2.2.gita272dfa8-cp313-cp313-linux_x86_64.whl
+https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/triton-3.6.0%2Brocm7.2.4.git4ed88892-cp311-cp311-linux_x86_64.whl
 
 At this moment only Python versions 3.10 up to 3.13 is supported in that repo, but it could be changed soon. So, always check when version is available. I really hope AMD will step up and help with official PyTorch so we can skip doing these steps. :)
 
@@ -111,6 +142,6 @@ pip3 uninstall torch torchvision triton torchaudio
 2. Then execute this
 
 ```bash
-pip3 install torch-2.9.1+rocm7.2.2.lw.git127a149a-cp313-cp313-linux_x86_64.whl torchvision-0.26.0+rocm7.2.2.git336d36e8-cp313-cp313-linux_x86_64.whl torchaudio-2.9.0+rocm7.2.2.gite3c6ee2b-cp313-cp313-linux_x86_64.whl triton-3.5.1+rocm7.2.2.gita272dfa8-cp313-cp313-linux_x86_64.whl
+pip3 install torch-2.9.1+rocm7.2.4.lw.git39497456-cp313-cp313-linux_x86_64.whl torchvision-0.25.0+rocm7.2.4.git82df5f59-cp313-cp313-linux_x86_64.whl torchaudio-2.10.0+rocm7.2.4.git5047768f-cp313-cp313-linux_x86_64.whl triton-3.6.0+rocm7.2.4.git4ed88892-cp311-cp311-linux_x86_64.whl
 ```
 
