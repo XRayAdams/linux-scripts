@@ -17,7 +17,7 @@ sudo nano /etc/yum.repos.d/fedora-updates.repo
 
 Add at the end of `[updates]` section
 ```
-exclude=rocm* hip* rocminfo
+exclude=rocm* hip* rocminfo rocblas* rocfft* rocrand* rccl* rocalution* rocprim* rocprofiler* rocthrust* hipsparse* migraph* mivis* rocsolv* rocspar* roctrac* rocwmm*
 ```
 
 Do the same for main Fedora repo
@@ -28,9 +28,10 @@ sudo nano /etc/yum.repos.d/fedora.repo
 
 Add at the end of `[updates]` section
 ```
-exclude=rocm* hip* rocminfo
+exclude=rocm* hip* rocminfo rocblas* rocfft* rocrand* rccl* rocalution* rocprim* rocprofiler* rocthrust* hipsparse* migraph* mivis* rocsolv* rocspar* roctrac* rocwmm*
 ```
 
+This will eventually exclude all Rocm packages from official Fedora repos
 
 
 Adding repo to `dnf`. Change version if new Rocm is available. Also, if new Red Hat Linux version is released.
