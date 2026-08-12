@@ -126,7 +126,7 @@ https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torchvision-0.25.0%2Brocm7
 
 https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torchaudio-2.10.0%2Brocm7.2.4.git5047768f-cp313-cp313-linux_x86_64.whl
 
-https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/triton-3.6.0%2Brocm7.2.4.git4ed88892-cp311-cp311-linux_x86_64.whl
+https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/triton-3.6.0%2Brocm7.2.4.git4ed88892-cp313-cp313-linux_x86_64.whl
 
 At this moment only Python versions 3.10 up to 3.13 is supported in that repo, but it could be changed soon. So, always check when version is available. I really hope AMD will step up and help with official PyTorch so we can skip doing these steps. :)
 
